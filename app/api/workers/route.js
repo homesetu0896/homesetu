@@ -1,11 +1,20 @@
+import { supabase } from "@/lib/supabase";
+
 export async function GET() {
+  const { data, error } = await supabase
+    .from("workers")
+    .select("*")
+    .order("name");
 
-  const workers = [
-    { name: "Rajesh", service: "Carpenter" },
-    { name: "Imran", service: "Electrician" },
-    { name: "Mahesh", service: "Plumber" }
-  ];
+  if (error) {
+    console.error("Error fetching workers:", error);
+    // Fallback so site never breaks
+    return Response.json([
+      { name: "Rajesh Kumar", service: "Carpenter" },
+      { name: "Imran Sheikh", service: "Electrician" },
+      { name: "Mahesh Patel", service: "Plumber" },
+    ]);
+  }
 
-  return Response.json(workers);
-
+  return Response.json(data);
 }
