@@ -16,12 +16,19 @@ const BASE_URL = "https://homesetu.in";
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
+
   title: {
     default: "HomeSetu — Trusted Home Services in Vadodara",
     template: "%s | HomeSetu Vadodara",
   },
-  description:
-    "Book verified home service professionals in Vadodara. AC repair, plumbing, carpentry, electrical, waterproofing & painting. Same-day service. Call back in 30 minutes.",
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  description: "Book verified home service professionals...",
   keywords: [
     "home services Vadodara",
     "AC repair Vadodara",
@@ -78,4 +85,5 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
+  
 }
